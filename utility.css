@@ -1,0 +1,90 @@
+/* General styling */
+.border {
+    border: 2px solid red;
+    margin: 3px;
+}
+
+.flex {
+    display: flex;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.invert {
+    filter: invert(1);
+}
+
+.bg-grey {
+    background-color: #121212;
+}
+
+.round {
+    border-radius: 8px;
+}
+
+.m-1 {
+    margin: 10px 5px;
+}
+
+.p-1 {
+    padding: 5px 5px 0 5px;
+}
+
+.display {
+    display: none;
+}
+
+/* Webkit browsers scrollbar styling */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: transparent;
+    border-radius: 2px;
+    transition: background-color 0.3s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Firefox scrollbar styling */
+/* .scrollbar-container {
+    scrollbar-width: thin;
+    scrollbar-color: #555 #333;
+} */
+
+/* Vertical scroll only */
+.scrollbar-container {
+    overflow-y: auto;
+}
+
+/* Responsive design for screens with max-width of 1371px */
+@media screen and (max-width: 1371px) {
+    /* Display hamburger menu */
+    .display {
+        display: inline-block;
+    }
+
+    /* Remove margins and paddings */
+    .m-1 {
+        margin: 0;
+    }
+
+    .p-1 {
+        padding: 0;
+    }
+}
+
