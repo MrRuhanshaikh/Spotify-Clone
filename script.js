@@ -15,7 +15,7 @@ async function getSongs(folder) {
   currentFolder = folder;
   
   // Use the correct GitHub URL to fetch songs
-  let myobject = await fetch(`https://raw.githubusercontent.com/MrRuhanshaikh/Spotify-Clone/master/songs/${folder}/`);
+  let myobject = await fetch(`https://github.com/MrRuhanshaikh/Spotify-Clone/tree/master/songs/${folder}/`);
   let response = await myobject.text();
   let div = document.createElement("div");
   div.innerHTML = response;
@@ -63,7 +63,7 @@ function initializeVolumeSlider() {
 // Function to play music
 const playMusic = (music, pause = false) => {
   // Correctly fetch the song from the GitHub URL
-  currentSong.src = `https://raw.githubusercontent.com/MrRuhanshaikh/Spotify-Clone/master/songs/${currentFolder}/${music}`;
+  currentSong.src = `https://github.com/MrRuhanshaikh/Spotify-Clone/tree/master/songs/${currentFolder}/${music}`;
   if (!pause) {
     currentSong.play();
     cur.src = "pause.svg";
@@ -83,7 +83,7 @@ const playMusic = (music, pause = false) => {
 // Function to make dynamic album
 async function getAlbum() {
   let cardContainer = document.querySelector(".cardContainer");
-  let myobject = await fetch(`https://raw.githubusercontent.com/MrRuhanshaikh/Spotify-Clone/master/songs/`); // fetch
+  let myobject = await fetch(`https://github.com/MrRuhanshaikh/Spotify-Clone/tree/master/songs/`); // fetch
   let response = await myobject.text();
   let div = document.createElement("div");
   div.innerHTML = response;
@@ -96,13 +96,13 @@ async function getAlbum() {
       let folder = decodeURIComponent(e.href.split("/").slice(-2, -1)[0]);
 
       // Fetch album info JSON
-      let albumInfo = await fetch(`https://raw.githubusercontent.com/MrRuhanshaikh/Spotify-Clone/master/songs/${folder}/info.json`);
+      let albumInfo = await fetch(`https://github.com/MrRuhanshaikh/Spotify-Clone/tree/master/songs/${folder}/info.json`);
       let albumData = await albumInfo.json();
 
       cardContainer.innerHTML += `
         <div data-folder="${folder}" class="card album-one">
           <img id="play_butt" src="play.svg" alt="play">
-          <img src="https://raw.githubusercontent.com/MrRuhanshaikh/Spotify-Clone/master/songs/${folder}/cover.jpeg" alt="${folder}">
+          <img src="https://github.com/MrRuhanshaikh/Spotify-Clone/tree/master/songs/${folder}/cover.jpeg" alt="${folder}">
           <h2>${albumData.title}</h2>
           <p>${albumData.description}</p>
         </div>`;
