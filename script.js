@@ -34,13 +34,13 @@ async function getSongs(folder) {
   for (const element of songs) {
     console.log(element)
     playlist.innerHTML += `<li>
-            <img class="invert" src="music.svg" alt="listen-music">
+            <img class="invert" src="./images/music.svg" alt="listen-music">
             <div class="songInfo">
                 <div>${element.replaceAll("%20"," ")}</div>
             </div>
             <div class="play-now">
                 <span>Play Now</span>
-                <img class="invert" src="cur_play.svg" alt="play-now">
+                <img class="invert" src="./images/cur_play.svg" alt="play-now">
             </div>
         </li>`
   }
@@ -67,7 +67,7 @@ const playMusic = (music, pause = false) => {
   currentSong.src = `/${currentFolder}/` + music; // match your song name with songs available in songs folder
   if (!pause) {
     currentSong.play();
-    cur.src = "pause.svg";
+    cur.src = "./images/pause.svg";
   }
   // Initialize volume slider
   initializeVolumeSlider();
@@ -99,7 +99,7 @@ async function getAlbum() {
       let myobject = await fetch(`http://192.168.1.7:3000/songs/${folder}/info.json`)
       let response = await myobject.json();
       cardContainer.innerHTML= cardContainer.innerHTML+` <div data-folder="${folder}"class="card album-one">
-                        <img id="play_butt" src="play.svg" alt="play">
+                        <img id="play_butt" src="./images/play.svg" alt="play">
                         <img src="./songs/${folder}/cover.jpeg" alt="${folder}">
                         <h2>${response.title}</h2>
                         <p>${response.description}</p>
@@ -126,10 +126,10 @@ async function main() {
   cur.addEventListener("click", () => {
     if (currentSong.paused) {
       currentSong.play();
-      cur.src = "pause.svg";
+      cur.src = "./images/pause.svg";
     } else {
       currentSong.pause();
-      cur.src = "cur_play.svg";
+      cur.src = "./images/cur_play.svg";
     }
   })
 
@@ -185,7 +185,7 @@ async function main() {
   // Volume mute/unmute event listener
   document.getElementById("volume").addEventListener("click", () => {
     currentSong.muted = !currentSong.muted;
-    volume.src = currentSong.muted ? "mute.svg" : "volume.svg";
+    volume.src = currentSong.muted ? "./images/mute.svg" : "./images/volume.svg";
   });
 
   // Volume slider input event listener
