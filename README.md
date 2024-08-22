@@ -32,7 +32,7 @@ The **Spotify Clone** replicates the core functionalities of the Spotify platfor
 
 ## 🔗 Live Demo
 
-You can view the live demo of the project [here](https://your-github-page-link).
+You can view the live demo of the project [here](https://spotifyshadow.freewebhostmost.com/).
 
 ## 📥 Installation
 
