@@ -13,7 +13,7 @@ function formatTime(seconds) {
 // Function to get songs from a folder
 async function getSongs(folder) {
   currentFolder = folder;
-  let myobject = await fetch(`http://192.168.1.7:3000/${folder}/`); // fetch
+  let myobject = await fetch(`/${folder}/`); // fetch
   let response = await myobject.text();
   let div = document.createElement("div");
   div.innerHTML = response;
@@ -83,7 +83,7 @@ const playMusic = (music, pause = false) => {
 // function to make dynamic albun
 async function getAlbum() {
   let cardContainer=document.querySelector(".cardContainer")
-  let myobject = await fetch(`http://192.168.1.7:3000/songs/`); // fetch
+  let myobject = await fetch(`/songs/`); // fetch
   let response = await myobject.text();
   let div = document.createElement("div");
   div.innerHTML = response;
@@ -92,11 +92,11 @@ async function getAlbum() {
     for (let index = 0; index < array.length; index++) {
       const e= array[index];
 
-    if(e.href.includes("/song")){
+    if(e.href.includes("/song")&& !e.href.includes(".htaccess")){
       let space=e.href.split("/").slice("-2")[0]
       let folder=decodeURI(space)
       //meta data of the folder
-      let myobject = await fetch(`http://192.168.1.7:3000/songs/${folder}/info.json`)
+      let myobject = await fetch(`/songs/${folder}/info.json`)
       let response = await myobject.json();
       cardContainer.innerHTML= cardContainer.innerHTML+` <div data-folder="${folder}"class="card album-one">
                         <img id="play_butt" src="./images/play.svg" alt="play">
